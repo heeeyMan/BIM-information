@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/country_data_item"
+    android:paddingVertical="@dimen/padding_8">
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="@integer/weight_1"
+        android:textColor="@color/gray_400"
+        android:textAllCaps="true"
+        android:textSize="@dimen/text_size_16"
+        android:fontFamily="@font/nunito_bold">
+    </TextView>
+    <TextView
+        android:id="@+id/country_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="@integer/weight_1"
+        android:textSize="@dimen/text_size_16"
+        android:textColor="@color/black"
+        android:fontFamily="@font/nunito_medium">
+    </TextView>
+    <TextView
+        android:id="@+id/coordinates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="@integer/weight_1"
+        android:textColor="@color/black"
+        android:fontFamily="@font/nunito_medium">
+    </TextView>
+</androidx.appcompat.widget.LinearLayoutCompat>

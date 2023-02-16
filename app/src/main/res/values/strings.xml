@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">Info BIN</string>
+
+    <string name="enter_bin">Enter BIN</string>
+    <string name="learn">Learn!</string>
+    <string name="thinking_person_description">The thinking person is depicted here \n you need to click on it to see the hint</string>
+    <string name="enter_something">Please, enter something your BIN;) </string>
+    <string name="history_text">Request history</string>
+
+    <!-- Errors text -->
+    <string name="not_correct_symbol">You can only enter numbers</string>
+    <string name="too_many_symbols">You have entered too many characters</string>
+    <string name="empty_text">You don\'t entered your bin ;)</string>
+    <string name="no_internet">No network connection!</string>
+    <string name="server_error">Server error</string>
+    <string name="unknown_error">Unknown error, sorry :(</string>
+    <string name="not_found">Result not found</string>
+
+    <!-- Titles -->
+    <string name="home">Home</string>
+    <string name="history">History</string>
+
+    <!-- Data field -->
+    <string name="divider">/</string>
+    <string name="true_value">Yes</string>
+    <string name="false_value">No</string>
+    <string name="latitude">(latitude:</string>
+    <string name="longitude">, longitude:</string>
+    <string name="coordinate">(latitude: %1$s , longitude: %2$s)</string>
+    <string name="bank_name_city">%1$s, %2$s</string>
+    <string name="boolean_data">%1$s/%2$s</string>
+    <string name="debit">Debit</string>
+    <string name="credit">Credit</string>
+
+    <!-- data headers -->
+    <string name="scheme">scheme/network</string>
+    <string name="brand">brand</string>
+    <string name="type">type</string>
+    <string name="card_number">card number</string>
+    <string name="length">length</string>
+    <string name="luhn">luhn</string>
+    <string name="prepaid">prepaid</string>
+    <string name="country">country</string>
+    <string name="bank">bank</string>
+
+    <!-- Edit Text-->
+    <string name="template">"XXXX XXXX"</string>
+    <string name="try_again">Try again</string>
+</resources>
