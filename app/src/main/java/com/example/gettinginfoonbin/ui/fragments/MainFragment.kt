@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,6 +40,7 @@ class MainFragment : Fragment(), OnItemClick {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         viewModel = MainAssembly(findNavController(), requireContext(), this).build()
         viewModel?.checkConnection()
+        viewModel?.handleEditText(binding?.binText?.text.toString())
         binDataAdapter = GroupAdapter()
         recyclerView = binding?.binDataList
         recyclerView?.layoutManager = LinearLayoutManager(context)
@@ -49,8 +49,8 @@ class MainFragment : Fragment(), OnItemClick {
             viewModel?.showHistory()
         }
         binding?.tryAgain?.setOnClickListener {
+            binding?.progressBar?.visibility = View.VISIBLE
             viewModel?.checkConnection()
-            binding?.progressBar?.visibility = View.GONE
         }
         binding?.requestButton?.background = context?.resources?.getDrawable(textState.buttonColor().first, null)
         context?.resources?.getColor(textState.buttonColor().second, null)
@@ -65,12 +65,10 @@ class MainFragment : Fragment(), OnItemClick {
             dataList.observe(viewLifecycleOwner) {
                 recyclerView?.adapter = binDataAdapter?.apply {
                     addAll(it)
-                    binding?.progressBar?.visibility = View.GONE
                 }
             }
             binTextState.observe(viewLifecycleOwner) {
                 textState = it
-                binding?.progressBar?.visibility = View.GONE
                 binding?.inputErrorText?.isVisible = it.errorTextVisible()
                 binding?.inputErrorText?.text = it.messageErrorText()
                     ?.let { textId -> context?.resources?.getString(textId) }
@@ -101,7 +99,7 @@ class MainFragment : Fragment(), OnItemClick {
     }
 
     inner class DataListener : TextWatcher {
-        private var sb = StringBuilder()
+        private var result = StringBuilder()
         private var ignore = false
 
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -113,10 +111,10 @@ class MainFragment : Fragment(), OnItemClick {
         override fun afterTextChanged(edit: Editable?) {
             viewModel?.handleEditText(edit.toString())
             if (!ignore) {
-               sb.toDigital(edit.toString())
-                sb.applyFormat(sb.toString(), getString(R.string.template))
+               result.toDigital(edit.toString())
+                result.applyFormat(result.toString(), getString(R.string.template))
                 ignore = true
-                edit?.replace(0, edit.length, sb.toString())
+                edit?.replace(0, edit.length, result.toString())
                 ignore = false
             }
         }
@@ -124,13 +122,13 @@ class MainFragment : Fragment(), OnItemClick {
 
     private fun queryTask(textState: BinTextState) {
         if(textState == BinTextState.CORRECT && viewModel?.checkConnection() == true) {
-            val query = binding?.binText?.text.toString().filter { !it.isWhitespace() }
-            viewModel?.requestBinInfo(query)
-            binding?.progressBar?.visibility = View.VISIBLE
             binding?.textError?.visibility = View.GONE
+            binding?.progressBar?.visibility = View.VISIBLE
             recyclerView?.adapter = binDataAdapter?.apply {
                 clear()
             }
+            val query = binding?.binText?.text.toString().filter { !it.isWhitespace() }
+            viewModel?.requestBinInfo(query)
             viewModel?.addHistoryItem(query)
         }
     }

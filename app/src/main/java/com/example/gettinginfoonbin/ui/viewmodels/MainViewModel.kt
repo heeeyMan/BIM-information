@@ -3,10 +3,7 @@ package com.example.gettinginfoonbin.ui.viewmodels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.gettinginfoonbin.datamodels.BinTextState
-import com.example.gettinginfoonbin.datamodels.ClearIconTextState
-import com.example.gettinginfoonbin.datamodels.RequestErrorState
-import com.example.gettinginfoonbin.datamodels.TypesItem
+import com.example.gettinginfoonbin.datamodels.*
 import com.example.gettinginfoonbin.models.IMainModel
 import com.example.gettinginfoonbin.router.IMainRouter
 import kotlinx.coroutines.launch
@@ -14,6 +11,7 @@ import com.xwray.groupie.kotlinandroidextensions.Item
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
+import java.net.ConnectException
 
 class MainViewModel(
     private val model: IMainModel,
@@ -23,6 +21,7 @@ class MainViewModel(
     var binTextState = MutableLiveData<BinTextState>()
     var queryErrorTextState = MutableLiveData<RequestErrorState>()
     var clearIconState = MutableLiveData<ClearIconTextState>()
+
     override fun showHistory() {
         router.navigationToHistory()
     }
@@ -31,12 +30,19 @@ class MainViewModel(
         viewModelScope.launch {
             try {
                 withContext(Dispatchers.IO) {
-                    val response = model.getBinData(request)
-                    withContext(Dispatchers.Main) {
-                        dataListUpdate(model.getData(response))
+                    val isConnection = checkConnection()
+                    if(isConnection) {
+                        val response = model.getBinData(request)
+                        withContext(Dispatchers.Main) {
+                            dataList.postValue(model.getData(response))
+                            queryErrorTextState.postValue(RequestErrorState.CORRECT)
+                        }
+                    } else {
+                        throw ConnectException("No connection!")
                     }
-                queryErrorTextState.postValue(RequestErrorState.CORRECT)
                 }
+            } catch (t: ConnectException) {
+                queryErrorTextState.postValue(RequestErrorState.NO_INTERNET)
             } catch (ex: HttpException) {
                 when(ex.code()) {
                     404 -> queryErrorTextState.postValue(RequestErrorState.NOT_FOUND)
@@ -58,17 +64,7 @@ class MainViewModel(
     }
 
     override fun checkConnection(): Boolean {
-        val isConnection = model.isConnection()
-        if(!isConnection) {
-            queryErrorTextState.postValue(RequestErrorState.NO_INTERNET)
-        } else {
-            queryErrorTextState.postValue( RequestErrorState.CORRECT)
-        }
-        return isConnection
-    }
-
-    private fun dataListUpdate(data: List<Item>) {
-        dataList.postValue(data)
+        return model.isConnection()
     }
 
     fun handleEditText(text: String) {
@@ -79,8 +75,8 @@ class MainViewModel(
             else -> binTextState.postValue( BinTextState.CORRECT)
         }
     }
+
     private fun isNoNumberChar(symbol: Char): Boolean {
         return symbol !in '0'..'9'
     }
-
 }
