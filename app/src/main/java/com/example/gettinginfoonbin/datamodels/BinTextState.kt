@@ -4,28 +4,30 @@ import com.example.gettinginfoonbin.R
 
 enum class BinTextState {
     EMPTY,
-    TOO_MANY_SYMBOLS,
-    WRONG_SYMBOL,
-    CORRECT;
+    NO_EMPTY;
     fun errorTextVisible(): Boolean {
         return when(this) {
-            CORRECT -> false
-            TOO_MANY_SYMBOLS, WRONG_SYMBOL, EMPTY -> true
+            EMPTY -> true
+            NO_EMPTY -> false
+        }
+    }
+    fun clearIconVisible(): Boolean {
+        return when(this) {
+            EMPTY -> false
+            NO_EMPTY -> true
         }
     }
     fun messageErrorText(): Int? {
         return when(this) {
-            CORRECT -> null
-            TOO_MANY_SYMBOLS -> R.string.too_many_symbols
-            WRONG_SYMBOL -> R.string.not_correct_symbol
             EMPTY -> R.string.empty_text
+            NO_EMPTY -> null
         }
     }
 
     fun buttonColor(): Pair<Int, Int> {
         return when(this) {
-            CORRECT -> Pair(R.drawable.button_state, R.color.orange_700)
-            TOO_MANY_SYMBOLS, WRONG_SYMBOL, EMPTY -> Pair(R.drawable.button_blocked, R.color.gray_400)
+            EMPTY -> Pair(R.drawable.button_blocked, R.color.gray_400)
+            NO_EMPTY -> Pair(R.drawable.button_state, R.color.orange_700)
         }
     }
 }

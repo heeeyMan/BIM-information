@@ -3,13 +3,11 @@
 
     <string name="enter_bin">Enter BIN</string>
     <string name="learn">Learn!</string>
-    <string name="thinking_person_description">The thinking person is depicted here \n you need to click on it to see the hint</string>
+    <string name="history_icon_description">The history icon is depicted here \n you need to click on it to see the hint</string>
     <string name="enter_something">Please, enter something your BIN;) </string>
     <string name="history_text">Request history</string>
 
-    <!-- Errors text -->
-    <string name="not_correct_symbol">You can only enter numbers</string>
-    <string name="too_many_symbols">You have entered too many characters</string>
+    <!-- Errors texts -->
     <string name="empty_text">You don\'t entered your bin ;)</string>
     <string name="no_internet">No network connection!</string>
     <string name="server_error">Server error</string>
@@ -46,4 +44,5 @@
     <!-- Edit Text-->
     <string name="template">"XXXX XXXX"</string>
     <string name="try_again">Try again</string>
+    <string name="clear_icon_description">The clear icon is depicted here</string>
 </resources>

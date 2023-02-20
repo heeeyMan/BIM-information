@@ -9,27 +9,44 @@
     android:background="@color/white"
     tools:context=".ui.fragments.MainFragment">
 
-    <EditText
-        android:id="@+id/binText"
+    <FrameLayout
+        android:id="@+id/text_bin_layout"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/standard_height"
-        android:ems="@integer/size_bin"
-        android:selectAllOnFocus="true"
-        android:drawableEnd="@drawable/toggle_drawable_state"
-        android:background="@drawable/bin_background"
-        android:fontFamily="@font/nunito_medium"
-        android:gravity="center"
-        android:hint="@string/enter_bin"
-        android:textColorHint="@color/gray_400"
-        android:textColor="@color/black"
-        android:textSize="@dimen/text_size_24"
-        android:layout_marginTop="@dimen/main_vertical_margin"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints=""
-        android:inputType="textNoSuggestions|number"/>
+        app:layout_constraintTop_toTopOf="parent">
 
+        <EditText
+            android:id="@+id/binText"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/standard_height"
+            android:ems="@integer/size_bin"
+            android:selectAllOnFocus="true"
+            android:background="@drawable/bin_background"
+            android:drawablePadding="@dimen/padding_8"
+            android:fontFamily="@font/nunito_medium"
+            android:gravity="center"
+            android:hint="@string/enter_bin"
+            android:textColorHint="@color/gray_400"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_24"
+            android:layout_marginTop="@dimen/main_vertical_margin"
+            android:autofillHints=""
+            android:inputType="textNoSuggestions|number"/>
+        <ImageView
+            android:id="@+id/clear_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/clear"
+            android:layout_gravity="center_vertical|end"
+            android:paddingTop="@dimen/padding_16"
+            android:paddingEnd="@dimen/padding_16"
+            tools:ignore="RtlSymmetry"
+            android:contentDescription="@string/clear_icon_description">
+        </ImageView>
+
+    </FrameLayout>
 
     <TextView
         android:id="@+id/request_button"
@@ -44,7 +61,7 @@
         android:layout_marginTop="@dimen/main_vertical_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/binText" />
+        app:layout_constraintTop_toBottomOf="@id/text_bin_layout" />
 
     <TextView
         android:id="@+id/input_error_text"
@@ -62,7 +79,7 @@
         android:id="@+id/history_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/thinking_person_description"
+        android:contentDescription="@string/history_icon_description"
         android:src="@drawable/book"
         android:layout_marginTop="@dimen/main_vertical_margin"
         app:layout_constraintEnd_toEndOf="parent"

@@ -52,6 +52,10 @@ class MainFragment : Fragment(), OnItemClick {
             binding?.progressBar?.visibility = View.VISIBLE
             viewModel?.checkConnection()
         }
+        binding?.clearIcon?.setOnClickListener {
+            val length = binding?.binText?.text?.length ?: 0
+            binding?.binText?.text?.replace(0, length, "")
+        }
         binding?.requestButton?.background = context?.resources?.getDrawable(textState.buttonColor().first, null)
         context?.resources?.getColor(textState.buttonColor().second, null)
             ?.let { colorId -> binding?.requestButton?.setTextColor(colorId) }
@@ -69,6 +73,7 @@ class MainFragment : Fragment(), OnItemClick {
             }
             binTextState.observe(viewLifecycleOwner) {
                 textState = it
+                binding?.clearIcon?.isVisible = it.clearIconVisible()
                 binding?.inputErrorText?.isVisible = it.errorTextVisible()
                 binding?.inputErrorText?.text = it.messageErrorText()
                     ?.let { textId -> context?.resources?.getString(textId) }
@@ -121,7 +126,7 @@ class MainFragment : Fragment(), OnItemClick {
     }
 
     private fun queryTask(textState: BinTextState) {
-        if(textState == BinTextState.CORRECT && viewModel?.checkConnection() == true) {
+        if(textState == BinTextState.NO_EMPTY && viewModel?.checkConnection() == true) {
             binding?.textError?.visibility = View.GONE
             binding?.progressBar?.visibility = View.VISIBLE
             recyclerView?.adapter = binDataAdapter?.apply {

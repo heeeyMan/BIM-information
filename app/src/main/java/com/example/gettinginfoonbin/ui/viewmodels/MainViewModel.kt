@@ -20,7 +20,6 @@ class MainViewModel(
     var dataList = MutableLiveData<List<Item>>()
     var binTextState = MutableLiveData<BinTextState>()
     var queryErrorTextState = MutableLiveData<RequestErrorState>()
-    var clearIconState = MutableLiveData<ClearIconTextState>()
 
     override fun showHistory() {
         router.navigationToHistory()
@@ -70,13 +69,7 @@ class MainViewModel(
     fun handleEditText(text: String) {
         when  {
             text.isEmpty() -> binTextState.postValue( BinTextState.EMPTY)
-            isNoNumberChar(text.last()) -> binTextState.postValue( BinTextState.WRONG_SYMBOL)
-            text.length > 9 -> binTextState.postValue( BinTextState.TOO_MANY_SYMBOLS)
-            else -> binTextState.postValue( BinTextState.CORRECT)
+            else -> binTextState.postValue( BinTextState.NO_EMPTY)
         }
-    }
-
-    private fun isNoNumberChar(symbol: Char): Boolean {
-        return symbol !in '0'..'9'
     }
 }
