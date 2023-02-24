@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="enter_bin">Введите BIN</string>
+    <string name="learn">Узнать!</string>
+    <string name="history_icon_description">Здесь изображена иконка истории</string>
+    <string name="enter_something">Пожалуйста, введите ваш BIN ;)</string>
+    <string name="history_text">Запрос истории</string>
+    <string name="history_empty">Ваша история пуста ;)</string>
+    <string name="query_empty">Вы не ввели ваш BIN</string>
+    <string name="no_internet">Нет сети!</string>
+    <string name="server_error">Ошибка сервера</string>
+    <string name="unknown_error">Неизвестная ошибка, извините :(</string>
+    <string name="not_found">Нет результата</string>
+    <string name="home">Домашняя</string>
+    <string name="history">История</string>
+    <string name="true_value">Да</string>
+    <string name="false_value">Нет</string>
+    <string name="app_name">Данные по BIN</string>
+    <string name="coordinate">(широта: %1$s , долгота: %2$s)</string>
+    <string name="debit">Дебитовая</string>
+    <string name="credit">Кредитная</string>
+    <string name="scheme">схема/сеть</string>
+    <string name="brand">бренд</string>
+    <string name="type">тип</string>
+    <string name="card_number">номер карты</string>
+    <string name="length">длинна</string>
+    <string name="luhn">тип карты</string>
+    <string name="prepaid">предоплаченный</string>
+    <string name="country">страна</string>
+    <string name="bank">банк</string>
+    <string name="try_again">Повторите снова</string>
+    <string name="clear_icon_description">Здесь изображена иконка очистки</string>
+
+</resources>

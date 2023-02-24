@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Info BIN</string>
 
     <string name="enter_bin">Enter BIN</string>
     <string name="learn">Learn!</string>
@@ -7,11 +6,11 @@
     <string name="enter_something">Please, enter something your BIN;) </string>
     <string name="history_text">Request history</string>
     <string name="history_empty">Your history is empty ;)</string>
-    <string name="empty_text" />
+    <string name="empty_text" translatable="false" />
 
 
     <!-- Errors texts -->
-    <string name="query_empty">You don\'t entered your bin ;)</string>
+    <string name="query_empty">You don\'t entered your BIN ;)</string>
     <string name="no_internet">No network connection!</string>
     <string name="server_error">Server error</string>
     <string name="unknown_error">Unknown error, sorry :(</string>
@@ -22,14 +21,11 @@
     <string name="history">History</string>
 
     <!-- Data field -->
-    <string name="divider">/</string>
     <string name="true_value">Yes</string>
     <string name="false_value">No</string>
-    <string name="latitude">(latitude:</string>
-    <string name="longitude">, longitude:</string>
     <string name="coordinate">(latitude: %1$s , longitude: %2$s)</string>
-    <string name="bank_name_city">%1$s, %2$s</string>
-    <string name="boolean_data">%1$s/%2$s</string>
+    <string name="bank_name_city" translatable="false">%1$s, %2$s</string>
+    <string name="boolean_data" translatable="false">%1$s/%2$s</string>
     <string name="debit">Debit</string>
     <string name="credit">Credit</string>
 
@@ -45,7 +41,8 @@
     <string name="bank">bank</string>
 
     <!-- Edit Text-->
-    <string name="template">"XXXX XXXX"</string>
+    <string name="template" translatable="false">"XXXX XXXX"</string>
     <string name="try_again">Try again</string>
     <string name="clear_icon_description">The clear icon is depicted here</string>
+    <string name="app_name">Bin Info</string>
 </resources>
