@@ -17,10 +17,16 @@ class CountryDataModel(
     override fun getLayout() = R.layout.country_data_item
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-        val latitude = item.value?.latitude.toString()
-        val longitude = item.value?.longitude.toString()
+        val latitude = item.value?.latitude ?: context.getString(R.string.unknown_latitude)
+        val longitude = item.value?.longitude ?: context.getString(R.string.unknown_longitude)
         val coordinates =
-            SpannableString(context.resources.getString(R.string.coordinate, latitude, longitude))
+            SpannableString(
+                context.resources.getString(
+                    R.string.coordinate,
+                    latitude.toString(),
+                    longitude.toString()
+                )
+            )
         viewHolder.header.text = item.header
         viewHolder.country_name.text = item.value?.name
         viewHolder.coordinates.text = coordinates

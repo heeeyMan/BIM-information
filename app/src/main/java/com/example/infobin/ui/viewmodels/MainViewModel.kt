@@ -44,11 +44,12 @@ class MainViewModel(
                 queryErrorTextState.postValue(RequestErrorState.NO_INTERNET)
             } catch (ex: HttpException) {
                 when (ex.code()) {
+                    400 -> queryErrorTextState.postValue(RequestErrorState.CLIENT_ERROR)
                     404 -> queryErrorTextState.postValue(RequestErrorState.NOT_FOUND)
                     in 500..511 -> queryErrorTextState.postValue(RequestErrorState.SERVER_ERROR)
                     else -> queryErrorTextState.postValue(RequestErrorState.UNKNOWN_ERROR)
                 }
-            } catch (t: Throwable) {
+            } catch (error: Throwable) {
                 queryErrorTextState.postValue(RequestErrorState.UNKNOWN_ERROR)
             }
         }

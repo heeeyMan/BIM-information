@@ -29,5 +29,17 @@
     <string name="bank">банк</string>
     <string name="try_again">Повторите снова</string>
     <string name="clear_icon_description">Здесь изображена иконка очистки</string>
+    <string name="unknown_brand">неизвестный бренд</string>
+    <string name="unknown_city">неизвестный город</string>
+    <string name="unknown_number">неизвестный номер</string>
+    <string name="unknown_country">неизвестная страна</string>
+    <string name="unknown_length">неизвестная длинна</string>
+    <string name="unknown_type">неизвестный тип</string>
+    <string name="unknown_luhn">неизвестный тип карты</string>
+    <string name="unknown_link">нет ссылки</string>
+    <string name="unknown_bank">неизвестный банк</string>
+    <string name="unknown_latitude">неизвестная широта</string>
+    <string name="unknown_longitude">неизвестная долгота</string>
+    <string name="client_error">Недостаточно данных для поиска :(</string>
 
 </resources>

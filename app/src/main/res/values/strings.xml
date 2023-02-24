@@ -13,8 +13,10 @@
     <string name="query_empty">You don\'t entered your BIN ;)</string>
     <string name="no_internet">No network connection!</string>
     <string name="server_error">Server error</string>
+    <string name="client_error">Not enough data to search :(</string>
     <string name="unknown_error">Unknown error, sorry :(</string>
     <string name="not_found">Result not found</string>
+
 
     <!-- Titles -->
     <string name="home">Home</string>
@@ -45,4 +47,16 @@
     <string name="try_again">Try again</string>
     <string name="clear_icon_description">The clear icon is depicted here</string>
     <string name="app_name" translatable="false">BIN</string>
+
+    <string name="unknown_brand">unknown brand</string>
+    <string name="unknown_bank">unknown bank</string>
+    <string name="unknown_city">unknown city</string>
+    <string name="unknown_number">unknown number</string>
+    <string name="unknown_country">unknown country</string>
+    <string name="unknown_length">unknown length</string>
+    <string name="unknown_type">unknown type</string>
+    <string name="unknown_luhn">unknown luhn</string>
+    <string name="unknown_link">no link</string>
+    <string name="unknown_latitude">unknown latitude</string>
+    <string name="unknown_longitude">unknown longitude</string>
 </resources>

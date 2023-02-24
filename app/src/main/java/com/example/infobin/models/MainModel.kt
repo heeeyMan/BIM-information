@@ -34,12 +34,25 @@ class MainModel(
     }
 
     override fun getData(data: BinInfoData): List<Item> {
-        val scheme = EasyData(context.resources.getString(R.string.scheme), data.scheme)
-        val brand = EasyData(context.resources.getString(R.string.brand), data.brand)
-        val type = EasyData(context.resources.getString(R.string.type), data.type)
+        val zero = 0
+        val scheme = EasyData(
+            context.resources.getString(R.string.scheme),
+            data.scheme ?: context.getString(R.string.unknown_type)
+        )
+        val brand = EasyData(
+            context.resources.getString(R.string.brand),
+            data.brand ?: context.getString(R.string.unknown_brand)
+        )
+        val type = EasyData(
+            context.resources.getString(R.string.type),
+            data.type ?: context.getString(R.string.unknown_type)
+        )
         val cardNumber = CardData(
             context.resources.getString(R.string.card_number),
-            EasyData(context.resources.getString(R.string.length), data.number?.length.toString()),
+            EasyData(
+                context.resources.getString(R.string.length),
+                (data.number?.length ?: zero).toString()
+            ),
             BoolData(context.resources.getString(R.string.luhn), data.number?.luhn)
         )
         val prepaid = BoolData(context.resources.getString(R.string.prepaid), data.prepaid)

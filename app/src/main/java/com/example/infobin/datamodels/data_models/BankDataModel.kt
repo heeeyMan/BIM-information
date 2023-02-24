@@ -18,10 +18,10 @@ class BankDataModel(
     override fun getLayout() = R.layout.bank_data_item
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-        val url = item.value?.url ?: ""
-        val phone = item.value?.phone ?: ""
-        val city = item.value?.city ?: ""
-        val bankName = item.value?.name ?: ""
+        val url = item.value?.url ?: context.getString(R.string.unknown_link)
+        val phone = item.value?.phone ?: context.getString(R.string.unknown_number)
+        val city = item.value?.city ?: context.getString(R.string.unknown_city)
+        val bankName = item.value?.name ?: context.getString(R.string.unknown_bank)
         viewHolder.header.text = item.header
         viewHolder.bank_name.text = context.getString(R.string.bank_name_city, bankName, city)
         viewHolder.link.text = url
