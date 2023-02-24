@@ -15,7 +15,6 @@
     <string name="history">История</string>
     <string name="true_value">Да</string>
     <string name="false_value">Нет</string>
-    <string name="app_name">Данные по BIN</string>
     <string name="coordinate">(широта: %1$s , долгота: %2$s)</string>
     <string name="debit">Дебитовая</string>
     <string name="credit">Кредитная</string>
