@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="ProgressBarStyle">
         <item name="colorAccent">@color/orange_700</item>
     </style>
 
-    <style name="Toolbar">
-        <item name="windowActionBar">false</item>
-        <item name="android:homeAsUpIndicator">@drawable/thinking_person</item>
-        <item name="android:textColorHint">@color/orange_700</item>
+    <style name="ToolbarStyle" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@drawable/toolbar</item>
     </style>
 
     <style name="TitleToolbar">

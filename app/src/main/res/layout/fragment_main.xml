@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_main"
@@ -21,30 +20,31 @@
             android:id="@+id/binText"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/standard_height"
-            android:ems="@integer/size_bin"
-            android:selectAllOnFocus="true"
+            android:layout_marginTop="@dimen/main_vertical_margin"
+            android:autofillHints=""
             android:background="@drawable/bin_background"
             android:drawablePadding="@dimen/padding_8"
+            android:ems="@integer/size_bin"
             android:fontFamily="@font/nunito_medium"
             android:gravity="center"
             android:hint="@string/enter_bin"
-            android:textColorHint="@color/gray_400"
+            android:inputType="textNoSuggestions|number"
+            android:selectAllOnFocus="true"
             android:textColor="@color/black"
-            android:textSize="@dimen/text_size_24"
-            android:layout_marginTop="@dimen/main_vertical_margin"
-            android:autofillHints=""
-            android:inputType="textNoSuggestions|number"/>
+            android:textColorHint="@color/gray_400"
+            android:textSize="@dimen/text_size_24" />
+
         <ImageView
             android:id="@+id/clear_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/clear"
             android:layout_gravity="center_vertical|end"
+            android:contentDescription="@string/clear_icon_description"
             android:paddingTop="@dimen/padding_16"
             android:paddingEnd="@dimen/padding_16"
-            tools:ignore="RtlSymmetry"
-            android:contentDescription="@string/clear_icon_description">
-        </ImageView>
+            android:src="@drawable/clear"
+            android:visibility="invisible"
+            tools:ignore="RtlSymmetry"/>
 
     </FrameLayout>
 
@@ -52,13 +52,13 @@
         android:id="@+id/request_button"
         android:layout_width="@dimen/standard_width"
         android:layout_height="@dimen/standard_height"
+        android:layout_marginTop="@dimen/main_vertical_margin"
         android:background="@drawable/button_state"
         android:gravity="center"
         android:text="@string/learn"
         android:textColor="@color/orange_700"
         android:textSize="@dimen/text_size_32"
         android:textStyle="bold"
-        android:layout_marginTop="@dimen/main_vertical_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_bin_layout" />
@@ -68,20 +68,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/main_vertical_margin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/request_button"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/request_button" />
 
     <ImageView
         android:id="@+id/history_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/main_vertical_margin"
         android:contentDescription="@string/history_icon_description"
         android:src="@drawable/book"
-        android:layout_marginTop="@dimen/main_vertical_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_error_text" />
@@ -90,10 +90,10 @@
         android:id="@+id/history_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_8"
         android:layout_marginBottom="@dimen/main_vertical_margin"
         android:text="@string/history_text"
         android:textColor="@color/orange_700"
-        android:layout_marginTop="@dimen/padding_8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/history_icon" />
@@ -103,22 +103,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/orange_700"
+        android:theme="@style/ProgressBarStyle"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:theme="@style/ProgressBarStyle"
-        android:visibility="gone"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/bin_data_list"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_zero"
-        android:background="@drawable/bin_background"
-        android:layout_marginVertical="@dimen/main_vertical_margin"
         android:layout_marginHorizontal="@dimen/main_horizontal_margin"
-        android:paddingVertical="@dimen/main_vertical_margin"
+        android:layout_marginVertical="@dimen/main_vertical_margin"
+        android:background="@drawable/bin_background"
         android:paddingHorizontal="@dimen/main_vertical_margin"
+        android:paddingVertical="@dimen/main_vertical_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -128,9 +128,9 @@
         android:id="@+id/text_error"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="@dimen/text_size_16"
         android:textColor="@color/orange_700"
+        android:textSize="@dimen/text_size_16"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/bin_data_list"
         app:layout_constraintEnd_toEndOf="@+id/bin_data_list"
         app:layout_constraintStart_toStartOf="@+id/bin_data_list"
@@ -140,14 +140,14 @@
         android:id="@+id/try_again"
         android:layout_width="@dimen/try_again_width"
         android:layout_height="@dimen/standard_height"
+        android:layout_marginBottom="@dimen/padding_16"
         android:background="@drawable/button_state"
         android:gravity="center"
         android:text="@string/try_again"
         android:textColor="@color/red_700"
         android:textSize="@dimen/text_size_16"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/text_error"
         app:layout_constraintEnd_toEndOf="@+id/bin_data_list"
-        app:layout_constraintStart_toStartOf="@+id/bin_data_list"
-        android:layout_marginBottom="@dimen/padding_16"
-        android:visibility="gone"/>
+        app:layout_constraintStart_toStartOf="@+id/bin_data_list" />
 </androidx.constraintlayout.widget.ConstraintLayout>

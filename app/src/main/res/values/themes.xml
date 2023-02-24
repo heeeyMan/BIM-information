@@ -15,8 +15,14 @@
         <item name="android:windowFullscreen">true</item>
         <item name="fontFamily">@font/nunito_regular</item>
 
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
         <item name="colorControlNormal">@color/orange_900</item>
         <item name="colorControlActivated">@color/red_700</item>
         <item name="colorControlHighlight">@color/orange_700</item>
+    </style>
+
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/red_700</item>
+        <item name="icon">@drawable/arrow_back</item>
     </style>
 </resources>

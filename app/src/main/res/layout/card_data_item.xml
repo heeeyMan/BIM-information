@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_data_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:id="@+id/card_data_item"
     android:paddingVertical="@dimen/padding_8">
+
     <TextView
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/gray_400"
-        android:textSize="@dimen/text_size_16"
+        android:fontFamily="@font/nunito_bold"
         android:textAllCaps="true"
-        android:fontFamily="@font/nunito_bold">
-    </TextView>
+        android:textColor="@color/gray_400"
+        android:textSize="@dimen/text_size_16"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <include
             android:id="@+id/length"
             layout="@layout/easy_data_item" />
+
         <include
             android:id="@+id/luhn"
-            layout="@layout/easy_data_item"/>
+            layout="@layout/easy_data_item" />
     </LinearLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>
