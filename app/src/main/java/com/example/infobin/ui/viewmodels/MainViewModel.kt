@@ -64,7 +64,7 @@ class MainViewModel(
             try {
                 model.addHistoryItem(query)
             } catch (error: Throwable) {
-                println("ERROR addHistoryItem $error")
+                queryErrorTextState.postValue(RequestErrorState.DATA_BASE_ERROR)
             }
         }
     }

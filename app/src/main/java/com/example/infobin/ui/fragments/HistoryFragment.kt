@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.infobin.R
 import com.example.infobin.assebly.HistoryAssembly
 import com.example.infobin.databinding.FragmentHistoryBinding
 import com.example.infobin.ui.adapters.DetailDataAdapter
@@ -32,7 +31,6 @@ class HistoryFragment : Fragment() {
         historyListAdapter = DetailDataAdapter()
         recyclerView?.adapter = historyListAdapter
         binding?.progressBar?.visibility = View.VISIBLE
-        binding?.textError?.text = getString(R.string.history_empty)
         return binding?.root
     }
 
@@ -45,6 +43,7 @@ class HistoryFragment : Fragment() {
             }
             historyListState.observe(viewLifecycleOwner) {
                 binding?.progressBar?.visibility = View.GONE
+                binding?.textError?.text = getString(it.errorText())
                 binding?.textError?.isVisible = it.errorTextVisible()
             }
         }

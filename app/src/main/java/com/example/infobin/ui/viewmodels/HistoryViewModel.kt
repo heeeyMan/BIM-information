@@ -17,7 +17,7 @@ class HistoryViewModel(
     var historyListState = MutableLiveData<HistoryDataState>()
     fun getHistoryList() {
         viewModelScope.launch {
-            withContext(Dispatchers.IO) {
+            try {
                 val data = model.getHistoryList()
                 withContext(Dispatchers.Main) {
                     if (data.isNotEmpty()) {
@@ -25,6 +25,8 @@ class HistoryViewModel(
                         historyList.postValue(data)
                     } else historyListState.postValue(HistoryDataState.EMPTY)
                 }
+            }catch (error: Throwable) {
+                historyListState.postValue(HistoryDataState.DATA_BASE_ERROR)
             }
         }
     }

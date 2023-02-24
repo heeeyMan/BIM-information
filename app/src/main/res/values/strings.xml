@@ -16,6 +16,7 @@
     <string name="client_error">Not enough data to search :(</string>
     <string name="unknown_error">Unknown error, sorry :(</string>
     <string name="not_found">Result not found</string>
+    <string name="data_base_error">Data base error!</string>
 
 
     <!-- Titles -->

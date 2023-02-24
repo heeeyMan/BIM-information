@@ -7,13 +7,15 @@ enum class RequestErrorState {
     NOT_FOUND,
     NO_INTERNET,
     SERVER_ERROR,
+    DATA_BASE_ERROR,
     CLIENT_ERROR,
     UNKNOWN_ERROR;
 
     fun errorTextVisible(): Boolean {
         return when (this) {
             CORRECT -> false
-            NOT_FOUND, NO_INTERNET, SERVER_ERROR, UNKNOWN_ERROR, CLIENT_ERROR -> true
+            NOT_FOUND, NO_INTERNET, SERVER_ERROR,
+            UNKNOWN_ERROR, CLIENT_ERROR, DATA_BASE_ERROR, -> true
         }
     }
 
@@ -25,12 +27,14 @@ enum class RequestErrorState {
             SERVER_ERROR -> R.string.server_error
             UNKNOWN_ERROR -> R.string.unknown_error
             CLIENT_ERROR -> R.string.client_error
+            DATA_BASE_ERROR -> R.string.data_base_error
+
         }
     }
 
     fun buttonColor(): Pair<Int, Int> {
         return when (this) {
-            CORRECT, NOT_FOUND, SERVER_ERROR, UNKNOWN_ERROR, CLIENT_ERROR -> Pair(
+            CORRECT, NOT_FOUND, SERVER_ERROR, UNKNOWN_ERROR, CLIENT_ERROR, DATA_BASE_ERROR -> Pair(
                 R.drawable.button_state,
                 R.color.orange_700
             )
@@ -40,7 +44,7 @@ enum class RequestErrorState {
 
     fun tryAgainButtonVisible(): Boolean {
         return when (this) {
-            CORRECT, NOT_FOUND, SERVER_ERROR, UNKNOWN_ERROR, CLIENT_ERROR -> false
+            CORRECT, NOT_FOUND, SERVER_ERROR, UNKNOWN_ERROR, CLIENT_ERROR, DATA_BASE_ERROR -> false
             NO_INTERNET -> true
         }
     }

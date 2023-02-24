@@ -41,5 +41,6 @@
     <string name="unknown_latitude">неизвестная широта</string>
     <string name="unknown_longitude">неизвестная долгота</string>
     <string name="client_error">Недостаточно данных для поиска :(</string>
+    <string name="data_base_error">Ошибка базы данных!</string>
 
 </resources>
