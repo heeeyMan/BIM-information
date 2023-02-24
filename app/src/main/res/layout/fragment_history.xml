@@ -31,6 +31,19 @@
         app:layout_constraintBottom_toBottomOf="@+id/history_list"
         app:layout_constraintEnd_toEndOf="@+id/history_list"
         app:layout_constraintStart_toStartOf="@+id/history_list"
-        app:layout_constraintTop_toTopOf="@+id/history_list" />
+        app:layout_constraintTop_toTopOf="@+id/history_list"
+        android:visibility="gone"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/orange_700"
+        android:theme="@style/ProgressBarStyle"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

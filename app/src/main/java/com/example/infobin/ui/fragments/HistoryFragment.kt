@@ -31,6 +31,7 @@ class HistoryFragment : Fragment() {
         recyclerView?.layoutManager = LinearLayoutManager(context)
         historyListAdapter = DetailDataAdapter()
         recyclerView?.adapter = historyListAdapter
+        binding?.progressBar?.visibility = View.VISIBLE
         binding?.textError?.text = getString(R.string.history_empty)
         return binding?.root
     }
@@ -43,6 +44,7 @@ class HistoryFragment : Fragment() {
                 historyListAdapter?.setMoreItems(it)
             }
             historyListState.observe(viewLifecycleOwner) {
+                binding?.progressBar?.visibility = View.GONE
                 binding?.textError?.isVisible = it.errorTextVisible()
             }
         }
